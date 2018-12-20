@@ -16,6 +16,7 @@ public class ArrayLauncher {
         for (int i = 0; i < myArray.length; i++) {
             System.out.println("Element #"+ i +"= "+ myArray[i]);
         }
+
     }
     private static int[] sort (int[] array){
 
