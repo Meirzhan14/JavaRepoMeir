@@ -1,8 +1,5 @@
 package lesson34;
 
-import java.util.ArrayList;
-import java.util.List;
-
 interface AbleToEat{
     public void eat();
 }
