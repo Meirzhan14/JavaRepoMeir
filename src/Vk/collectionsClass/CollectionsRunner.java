@@ -1,11 +1,6 @@
 package Vk.collectionsClass;
 
-
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class CollectionsRunner {
     public static void main(String[] args) {
@@ -17,60 +12,31 @@ public class CollectionsRunner {
             }
         }
 
-        System.out.println("Original deck of cards");
-        for (int i = 0; i < deckOfCards.size(); i++) {
-            System.out.printf("%-20s %s ", deckOfCards.get(i),(i+1)%4 == 0 ? "\n" : " ");
-        }
+        //System.out.println("Original deck of cards");
+        printOutput(deckOfCards);
         Collections.shuffle(deckOfCards);
 
+        Collections.sort(deckOfCards);
+        Card card = new Card(Card.Suit.SPADES, Card.Face.ACE);
+        int i = Collections.binarySearch(deckOfCards, card);
+        if(i >= 0){
+            System.out.println("Card was found at position "+i);
+        } else {
+            System.out.println("Card was not found");
+        }
+
         System.out.println("\n\nCards after shuffle");
+        //printOutput(deckOfCards);
+        List<Card> cardList = new ArrayList<>(deckOfCards);
+        Collections.fill(cardList,card);
+        printOutput(cardList);
+    }
+
+
+    private static void printOutput(List<Card> deckOfCards) {
         for (int i = 0; i < deckOfCards.size(); i++) {
             System.out.printf("%-20s %s ", deckOfCards.get(i),(i+1)%4 == 0 ? "\n" : " ");
         }
     }
 
-    public static class Card implements Comparable<Card>{
-
-
-        private enum Suit{SPADES, HEARTS, CLUBS, DIMONS}
-
-        private enum Face{ACE, DEUCE, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NUNE, TEN, JACK, QUEEN, KING}
-
-        private final Suit suit;
-        private final Face face;
-
-        public Card(Suit suit, Face face) {
-            this.suit = suit;
-            this.face = face;
-        }
-
-        public Suit getSuit() {
-            return suit;
-        }
-
-        public Face getFace() {
-            return face;
-        }
-
-        @Override
-        public int compareTo(Card card) {
-
-            Face[] values = Face.values();
-            List<Face> faces = Arrays.asList(values);
-
-            if(faces.indexOf(this.face)<faces.indexOf(card.getFace())){
-                return -1;
-            } else if (faces.indexOf(this.face)>faces.indexOf(card.getFace())){
-                return +1;
-            } else if (faces.indexOf(this.face)==faces.indexOf(card.getFace())){
-                return String.valueOf(suit).compareTo(String.valueOf(card.getSuit()));
-            }
-            return 0;
-        }
-
-        @Override
-        public String toString() {
-            return face + " of " + suit;
-        }
-    }
 }
