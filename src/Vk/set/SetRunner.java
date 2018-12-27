@@ -20,6 +20,7 @@ public class SetRunner {
        sixCars.add(new Car("Nissan","Kashkai",3800));
 
         NavigableSet<Car> uniqueCars = new TreeSet<>(sixCars);
+        NavigableSet<Car> uniqueCars = new TreeSet<>(sixCars);
         uniqueCars.addAll(europaCars);
 
         SortedSet<Car> cars1 = uniqueCars.subSet(new Car("Mazda", "m2", 2500), new Car("Audi", "A8", 8000));
