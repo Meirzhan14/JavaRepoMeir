@@ -2,12 +2,12 @@ package Vk.set;
 
 import java.util.Comparator;
 
-public class Car implements Comparable<Car> {
+public final class Car implements Comparable<Car> {
     private final String carBrand;
     private final String model;
     private final Integer pricePerDay;
 
-     Car(String carBrand, String model, int pricePerDay) {
+     public Car(String carBrand, String model, int pricePerDay) {
         this.carBrand = carBrand;
         this.model = model;
         this.pricePerDay = pricePerDay;
