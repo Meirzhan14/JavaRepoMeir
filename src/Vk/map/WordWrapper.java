@@ -18,14 +18,14 @@ public class WordWrapper implements Comparable<WordWrapper>{
     }
 
     @Override
-    public int compareTo(WordWrapper word) {
-        if (count < word.getCount()) {
-            return 1;
-        }
-        if (count > word.getCount()) {
+    public int compareTo(WordWrapper thatWord) {
+        if (count < thatWord.getCount()) {
             return -1;
         }
-        return 0;
+        if (count > thatWord.getCount()) {
+            return 1;
+        }
+        return word.compareTo(thatWord.getWord());
     }
 
     @Override
