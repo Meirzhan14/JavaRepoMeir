@@ -7,6 +7,7 @@ public class SetRunner {
 
        Set<Car> sixCars = new HashSet<>();
        sixCars.add(new Car("BMW","X6",10000));
+       sixCars.add(new Car("BMW","X6",10000));
        sixCars.add(new Car("Audi","A8",8000));
        sixCars.add(new Car("Lada","15",2000));
        sixCars.add(new Car("Reno","Logan",3500));
