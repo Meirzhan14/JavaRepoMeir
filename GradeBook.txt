@@ -1,0 +1,30 @@
+----------Student Ari Average grade: 56.0
+Subject: GeographyGrade: 65
+Subject: MathGrade: 50
+Subject: LiteratureGrade: 55
+Subject: PhysicsGrade: 50
+Subject: HistoryGrade: 60
+----------Student Ali Average grade: 76.0
+Subject: PhysicsGrade: 70
+Subject: GeographyGrade: 75
+Subject: MathGrade: 100
+Subject: LiteratureGrade: 75
+Subject: HistoryGrade: 60
+----------Student James Average grade: 80.0
+Subject: PhysicsGrade: 60
+Subject: LiteratureGrade: 97
+Subject: MathGrade: 70
+Subject: GeographyGrade: 91
+Subject: HistoryGrade: 82
+----------Student Mike Average grade: 88.0
+Subject: PhysicsGrade: 90
+Subject: LiteratureGrade: 85
+Subject: MathGrade: 100
+Subject: HistoryGrade: 80
+Subject: GeographyGrade: 85
+----------Student Alex Average grade: 89.6
+Subject: GeographyGrade: 91
+Subject: MathGrade: 90
+Subject: PhysicsGrade: 80
+Subject: LiteratureGrade: 95
+Subject: HistoryGrade: 92
