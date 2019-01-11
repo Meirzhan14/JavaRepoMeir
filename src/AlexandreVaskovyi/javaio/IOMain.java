@@ -10,10 +10,13 @@ import java.util.Set;
 
 public class IOMain {
     private static final String FILE_NAME= "GradeBook.txt";
+
     public static void main(String[] args) throws IOException {
         NavigableMap<AverageStudentGrade, Set<SubjectGrade>> grades = TreeMapRunner.createGrades();
-        readFile(grades);
+        writeFile(grades);
         readFile();
+
+
     }
 
     private static void readFile() throws IOException {
@@ -24,7 +27,7 @@ public class IOMain {
         }
     }
 
-    private static void readFile(NavigableMap<AverageStudentGrade, Set<SubjectGrade>> grades) throws IOException {
+    private static void writeFile(NavigableMap<AverageStudentGrade, Set<SubjectGrade>> grades) throws IOException {
         try(PrintWriter writer = new PrintWriter(new FileWriter(FILE_NAME))) {
             for (AverageStudentGrade gradeKey : grades.keySet()) {
 
