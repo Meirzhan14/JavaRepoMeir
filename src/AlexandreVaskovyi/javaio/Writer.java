@@ -5,7 +5,10 @@ import AlexandreVaskovyi.treemap.SubjectGrade;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
@@ -24,5 +27,13 @@ public class Writer {
         }
     }
 
-    public void writeObject(List<Student> students, String fileName){}
+    public void writeObject(List<Student> students, String fileName){
+        try(ObjectOutputStream out = new ObjectOutputStream(Files.newOutputStream(Paths.get(fileName)))) {
+            for (Student student : students){
+                out.writeObject(students);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
