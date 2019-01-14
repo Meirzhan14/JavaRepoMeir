@@ -5,39 +5,28 @@ import AlexandreVaskovyi.treemap.SubjectGrade;
 import AlexandreVaskovyi.treemap.TreeMapRunner;
 
 import java.io.*;
-import java.util.NavigableMap;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
+import java.util.SortedMap;
 
 public class IOMain {
     private static final String FILE_NAME= "GradeBook.txt";
 
     public static void main(String[] args) throws IOException {
-        NavigableMap<AverageStudentGrade, Set<SubjectGrade>> grades = TreeMapRunner.createGrades();
-        writeFile(grades);
-        readFile();
-
-
+        SortedMap<AverageStudentGrade, Set<SubjectGrade>> grades = TreeMapRunner.createGrades();
+        Reader reader = new Reader();
+        Writer writer = new Writer();
+        writer.writeFile(grades,FILE_NAME);
+        reader.readFile(FILE_NAME);
     }
 
-    private static void readFile() throws IOException {
-        BufferedReader reader =new BufferedReader(new FileReader(FILE_NAME));
-        String c;
-        while ((c = reader.readLine())!=null){
-            System.out.println(c);
+    private void processGrades(SortedMap<AverageStudentGrade, Set<SubjectGrade>> grades, Writer writer, String fileName){
+        List<Student> students = new ArrayList<>();
+        for (AverageStudentGrade gradeKey: grades.keySet()){
+            students.add(new Student(gradeKey.getName(), gradeKey.getAverageGrade(), grades.get(gradeKey)));
         }
-    }
-
-    private static void writeFile(NavigableMap<AverageStudentGrade, Set<SubjectGrade>> grades) throws IOException {
-        try(PrintWriter writer = new PrintWriter(new FileWriter(FILE_NAME))) {
-            for (AverageStudentGrade gradeKey : grades.keySet()) {
-
-                writer.write("--------------------------------\n");
-                writer.write("Student " + gradeKey.getName() + " Average grade: " + gradeKey.getAverageGrade() + "\n");
-                for (SubjectGrade grade : grades.get(gradeKey)) {
-                    writer.write("Subject: " + grade.getSubject() + "Grade: " + grade.getGrade() + "\n");
-                }
-            }
-        }
+        writer.writeObject(students,FILE_NAME);
     }
 }
 
