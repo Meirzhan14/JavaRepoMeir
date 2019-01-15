@@ -15,16 +15,26 @@ public class Reader {
         }
     }
 
-    public List<Student> readObject(String fileName){
+    /*public List<Student> readObject(String fileName){
         List<Student> students = new ArrayList<>();
         try(ObjectInputStream in = new ObjectOutputStream(Files.newInputStream(Paths.get(fileName)))){
+            boolean keepReading = true;
+            while(keepReading){
+                Student student = (Student) in.readObject();
+                if (!"".equals(student.getName())){
+                    students.add(student);
+                } else {
+                    keepReading = false;
+                }
+            }
 
-            Object o = in.readObject();
-            students.add()
         } catch (IOException e) {
+            System.out.println("Unable to open file "+ fileName);
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
+            System.out.println("Invalid object type");
             e.printStackTrace();
         }
-    }
+        return students;
+    }*/
 }

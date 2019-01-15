@@ -16,9 +16,10 @@ public class IOMain {
         Writer writer = new Writer();
         Reader reader = new Reader();
         SortedMap<AverageStudentGrade, Set<SubjectGrade>> grades = TreeMapRunner.createGrades();
-        writer.writeFile(grades, FILE_NAME);
+        /*writer.writeFile(grades, FILE_NAME);
         reader.readFile(FILE_NAME);
-        processGrades(grades, writer, BINARY_FILE);
+        processGrades(grades, writer, BINARY_FILE);*/
+        System.out.println(System.getProperty("user.dir"));
     }
 
     private static void processGrades (SortedMap<AverageStudentGrade, Set<SubjectGrade>> grades, Writer writer, String fileName){
